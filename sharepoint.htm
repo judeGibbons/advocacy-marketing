@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<link href="css/amigo.css" rel="stylesheet"/>
+
+<title>Sharepoint page</title>
+
+    <script type="text/javascript">
+        //====== data object specification
+        window.amigoData = {
+            sharepointName: 'jg_sharepoint',
+            userId: '1234',
+            metadata: {
+                page: {
+                    category: 'landingPage'
+                }
+            }
+        };
+    </script>
+
+    <script type="text/javascript">
+        //====== initialise Amigo SDK and call function in external js file
+        window.amigoAsyncInit = function () {
+            Amigo.init({
+                apiKey: 'cea63d570dd2dcdd364d91eedcc1592e0aed0ede325f597f33b65a53d28cb94f',
+                autoSend: true, //if sent automatically rather than adhoc
+                debug: true
+            });
+            amigoModule.setUpSharepoints(Amigo);
+        };
+
+        (function (d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+            	return;
+            }
+            js = d.createElement(s); js.id = id;
+            //js.src = "sdk-latest-offline.js"; //LOCAL COPY
+            //js.src = "//d22stxronnwc65.cloudfront.net/sdk-latest.js";
+            js.src = "https://d22stxronnwc65.cloudfront.net/sdk-latest.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'amigo-jssdk'));
+
+    </script>
+
+</head>
+
+<body class="sharePointPage">
+
+<header>
+<h1>Sharepoint page</h1>
+</header>
+
+<div id="mainContent">
+
+<div class="pageContent">
+<p>Welcome to our page about interesting stuff. Please let your friends know about us, and maybe receive a reward!</p>
+</div>
+
+<div id="jg_sharepoint">
+
+<form action="./touchpoint.htm">
+<button id="shareChannel1" type="submit">Share this page on Facebook</button>
+</form>
+
+<button id="shareChannel2" type="submit">Email this page to a friend</button>
+
+</div>
+
+</div>
+
+<script type="text/javascript" src="js/amigoShare.js"></script>
+
+</body>
+</html>

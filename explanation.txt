@@ -1,0 +1,24 @@
+A person arrives on a sharepoint page.
+
+If they have an ID associated with them (ie they've clicked on a link in an email that was delivered to them, so they are a known person), they are a Prospect. [What other ways are there of having an ID associated with them?]
+
+If they don't have an ID associated with them, they are a Friend. A Friend has to have interacted with a Share URL which means they will have arrived on the page by anonymously clicking a shared url on Facebook, Twitter etc.
+
+A sharepoint page is a page with one or more sharepoint areas. A sharepoint area contains one or more buttons, each of which shares to a particular channel, eg Facebook, Twitter, email.
+
+When the sharepoint page loads, code in the header initialises the Amigo SDK and creates a unique 'share token'. The ID of this share token is appended to the url of the sharepoint page. This can then be tracked if someone copypastes the url into another medium to share it.
+
+When the sharepoint page loads, the code also creates a data object (window.amigoData). One property of this is the userId of the Prospect. [Presumably if it's a Friend who's landed on this page, the userId field is blank. In this exercise the userId is set manually in the header of the sharepoint page, but I am assuming that this is pulled in when a Prospect lands on the page from the ID information they have associated with them, either inserted server-side, or updated after the web page has received the data.]
+
+The SDK data object is associated with a specific Sharepoint, OR with a specific Touchpoint. [Once an Advocate moves from a Sharepoint to a Touchpoint, does the data object change?]
+
+If there are multiple sharepoints on one URL, multiple data objects are created.
+
+These data objects can contain "metadata about the Sharepoint or Touchpoint" that you define e.g. product, price... this implies that the Sharepoint can contain a purchase button.
+
+A Prospect becomes an Advocate if they share (by clicking a 'share on facebook' or 'share by email' etc button) a url. [what happens if a Friend shares - do they become an Advocate? If they have no userId then this share is anonymous - is it still useful?]
+
+Referring to it as Amigo.shareToken is confusing - surely there are multiple tokens?
+
+I did find out some explanation from the http://digitalanimal.com/language-of-advocacy/ glossary pages (they go to a 404 but are still in Google's cache).
+
